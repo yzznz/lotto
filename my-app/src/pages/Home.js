@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import NumberCreate from "../components/NumberCreate";
 
 const Home = () => {
-  // const getData = async () => {
-  //   const res = await fetch("http://localhost:5000/lottos/last").then((res) =>
-  //     res.json()
-  //   );
-  // };
+  const getData = async () => {
+    const res = await fetch("http://localhost:5000/lottos/last").then((res) =>
+      res.json()
+    );
+    console.log(res);
+  };
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+  useEffect(() => {
+    getData();
+  }, []);
 
   const [number, setNumber] = useState();
   return (
