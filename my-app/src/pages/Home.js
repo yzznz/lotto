@@ -1,19 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NumberCreate from "../components/NumberCreate";
+import WinNumber from "../components/WinNumber";
 
 const Home = () => {
-  const getData = async () => {
-    const res = await fetch("http://localhost:5000/lottos/last").then((res) =>
-      res.json()
-    );
-    console.log(res);
-  };
+  const [number, setNumber] = useState(NumberCreate);
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const [number, setNumber] = useState();
   return (
     <div>
       <h3>SiteName</h3>
@@ -23,10 +14,11 @@ const Home = () => {
       </div>
       <div className="WinNumber">
         <h1>당첨번호</h1>
+        <WinNumber />
       </div>
       <div className="LottoCreate">
         <h1>로또 번호 생성기</h1>
-        <NumberCreate />
+        {number}
         {/* 제외할 번호 */}
         <input
           type="button"

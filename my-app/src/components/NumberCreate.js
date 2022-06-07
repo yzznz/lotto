@@ -7,6 +7,7 @@ const getRandom = () => {
 
 const NumberCreate = () => {
   const numberArray = [];
+  console.log("create");
 
   while (numberArray.length < 6) {
     const temp = getRandom();
