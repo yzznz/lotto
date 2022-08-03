@@ -7,17 +7,21 @@ const Home = () => {
 
   return (
     <div>
-      <h3>SiteName</h3>
-      <div className="Notice">
-        <h1>공지사항</h1>
-        <div className="List"></div>
+      <div className="sitename">
+        <h2>로또 시뮬레이션</h2>
       </div>
-      <div className="WinNumber">
-        <h1>당첨번호</h1>
-        <WinNumber />
+      <div className="notice"></div>
+      <div className="second">
+        <div className="article">
+          <h1>당첨번호</h1>
+          <WinNumber />
+        </div>
+        <div className="article">
+          <h1>번호별 당첨확률</h1>
+        </div>
       </div>
-      <div className="LottoCreate">
-        <h1>로또 번호 생성기</h1>
+      <div className="lotto_create">
+        <h1>번호 생성기</h1>
         {number}
         {/* 제외할 번호 */}
         <input

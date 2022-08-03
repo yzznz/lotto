@@ -8,6 +8,7 @@ const WinNumber = () => {
     const res = await fetch(`http://localhost:5000/lottos/${date}`).then(
       (res) => res.json()
     );
+
     setLottoNumber(res);
   };
 
@@ -15,6 +16,37 @@ const WinNumber = () => {
     getData();
   }, []);
   console.log(lottoNumber);
+
+  const WinNumberClassName = () => {
+    const numberArray = [
+      lottoNumber.drwtNo1,
+      lottoNumber.drwtNo2,
+      lottoNumber.drwtNo3,
+      lottoNumber.drwtNo4,
+      lottoNumber.drwtNo5,
+      lottoNumber.drwtNo6,
+      "+",
+      lottoNumber.bnusNo,
+    ];
+
+    return numberArray.map((it, key) => {
+      let color = 0;
+      if (it > 0) color++;
+      if (it > 10) color++;
+      if (it > 20) color++;
+      if (it > 30) color++;
+      if (it > 40) color++;
+      return (
+        <span
+          key={key}
+          className={["win_number", `win_number_${color}`].join(" ")}
+        >
+          {it}
+        </span>
+      );
+    });
+  };
+
   return (
     <div>
       <div>
@@ -22,9 +54,7 @@ const WinNumber = () => {
         <br /> [{lottoNumber.drwNoDate}]
       </div>
       <div className="WinNumber">
-        {lottoNumber.drwtNo1} {lottoNumber.drwtNo2} {lottoNumber.drwtNo3}{" "}
-        {lottoNumber.drwtNo4} {lottoNumber.drwtNo5} {lottoNumber.drwtNo6} +{" "}
-        {lottoNumber.bnusNo}
+        <WinNumberClassName />
       </div>
       <div className="">
         1등 총 당첨금{" "}
